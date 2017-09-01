@@ -19,6 +19,21 @@ class App extends Component {
 
 
   render() {
+    const cards = [
+      { title: "Make Better styles",
+        priority: "medium",
+        status: "not done",
+        createdBy: "james",
+        assignedTo: "notJames"
+      },
+      { title: "Make More styles",
+        priority: "low",
+        status: "not done",
+        createdBy: "james",
+        assignedTo: "otherJames"
+      }
+    ]
+
     return (
       <div className="App">
 
@@ -26,13 +41,9 @@ class App extends Component {
           title="Kanban"
         />
 
-        <Card
-          title="Make Better Styles"
-          priority="Medium"
-          status="In Queue"
-          createdBy="James"
-          assignedTo="notJames"
-        />
+        <ul>
+          { cards.map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />) }
+        </ul>
 
       </div>
     );

@@ -6,10 +6,10 @@ const Card = (props) =>{
   return(
     <div>
       <h3>{props.title}</h3>
-      <p>{props.priority}</p>
-      <p>{props.status}</p>
-      <p>{props.createdBy}</p>
-      <p>{props.assignedTo}</p>
+      <p>priority: {props.priority}</p>
+      <p>column: {props.status}</p>
+      <p>created by: {props.createdBy}</p>
+      <p>assigned to: {props.assignedTo}</p>
     </div>
     )
 }
