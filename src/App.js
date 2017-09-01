@@ -5,6 +5,7 @@ import './App.css';
 
 import HeaderTitle from './components/header';
 import Card from './components/card';
+import NewCard from './components/addCard'
 
 class App extends Component {
 
@@ -44,6 +45,8 @@ class App extends Component {
         <ul>
           { cards.map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />) }
         </ul>
+
+        <NewCard />
 
       </div>
     );
