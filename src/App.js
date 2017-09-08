@@ -17,9 +17,21 @@ class App extends Component {
 
 
   render() {
+    console.log(this.props.cards);
     return (
-      <h1>Hello</h1>
+      <div>
+        <h1>Hello</h1>
+        <ul>
+          { this.props.cards.map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />) }
+        </ul>
+      </div>
     );
+  }
+}
+
+const mapStateToProps = (state) =>{
+  return {
+    cards: state
   }
 }
 
@@ -32,7 +44,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const ConnectedApp = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App)
 
