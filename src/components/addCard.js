@@ -3,6 +3,10 @@
 import React, { Component } from 'react';
 
 class NewCard extends Component{
+  handleSubmit(event) {
+    console.log('handleSubmit');
+  }
+
   render() {
     return(
       <div className="card-form">
@@ -21,7 +25,7 @@ class NewCard extends Component{
         <label htmlFor="new-card-assignedTo">assigned to</label>
         <input type="text" name="assignedTo"/>
         <br/>
-        <button>Submit</button>
+        <button onClick={this.handleSubmit.bind(this)}>Submit</button>
       </div>
 
       )

@@ -2,15 +2,21 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'react';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
 import './index.css';
 import App from './App';
 import cards from './reducers/cards.js';
 import registerServiceWorker from './registerServiceWorker';
+console.log('cards', cards);
+const store = createStore(
+  cards,
+  applyMiddleware(thunk));
 
-const store = createStore(cards);
-
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>, document.getElementById('root'));
 registerServiceWorker();
