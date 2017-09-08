@@ -15,6 +15,12 @@ export function KBcards(){
         status: "done",
         createdBy: "otherJames",
         assignedTo: "james"
+      },
+      { title: "Make Great styles",
+        priority: "high",
+        status: "progress",
+        createdBy: "otherJames",
+        assignedTo: "james"
       }
     ]
     //cards: ['one', 'two', 'three']

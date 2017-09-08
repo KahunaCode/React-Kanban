@@ -20,19 +20,28 @@ class App extends Component {
     console.log(this.props.cards);
     return (
       <div>
-        <h1>Hello</h1>
-        <ul>
-          { this.props.cards.filter(card => card.status === "queue")
-            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
-        </ul>
-        <ul>
-          { this.props.cards.filter(card => card.status === "progress")
-            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
-        </ul>
-        <ul>
-          { this.props.cards.filter(card => card.status === "done")
-            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
-        </ul>
+        <h1>Kanban</h1>
+        <div id="queue">
+          <h3>Queue</h3>
+          <ul>
+            { this.props.cards.filter(card => card.status === "queue")
+              .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+          </ul>
+        </div>
+        <div id="progress">
+          <h3>Progress</h3>
+          <ul>
+            { this.props.cards.filter(card => card.status === "progress")
+              .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+          </ul>
+        </div>
+        <div id="done">
+          <h3>Done</h3>
+          <ul>
+            { this.props.cards.filter(card => card.status === "done")
+              .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+          </ul>
+        </div>
       </div>
     );
   }
