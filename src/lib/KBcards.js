@@ -6,15 +6,15 @@ export function KBcards(){
       cards : [
       { title: "Make Better styles",
         priority: "medium",
-        status: "not done",
+        status: "queue",
         createdBy: "james",
         assignedTo: "notJames"
       },
       { title: "Make More styles",
         priority: "low",
-        status: "not done",
-        createdBy: "james",
-        assignedTo: "otherJames"
+        status: "done",
+        createdBy: "otherJames",
+        assignedTo: "james"
       }
     ]
     //cards: ['one', 'two', 'three']

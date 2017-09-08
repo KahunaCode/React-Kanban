@@ -22,7 +22,16 @@ class App extends Component {
       <div>
         <h1>Hello</h1>
         <ul>
-          { this.props.cards.map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />) }
+          { this.props.cards.filter(card => card.status === "queue")
+            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+        </ul>
+        <ul>
+          { this.props.cards.filter(card => card.status === "progress")
+            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+        </ul>
+        <ul>
+          { this.props.cards.filter(card => card.status === "done")
+            .map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
         </ul>
       </div>
     );
