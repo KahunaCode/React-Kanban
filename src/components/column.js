@@ -9,7 +9,7 @@ export default ({ id, title, cards}) => {
   <div id={id}>
           <h3>{title}</h3>
           <ul>
-            { cards.map(card => <Card title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
+            { cards.map(card => <Card id={card.id} title={card.title} priority={card.priority} status={card.status} createdBy={card.createdBy} assignedTo={card.assignedTo} />)}
           </ul>
         </div>
     )
