@@ -2,6 +2,7 @@
 
 import { LOAD_CARDS } from '../actions/cardActions.js';
 import { MOVE_LEFT } from '../actions/moveLeft.js';
+import { MOVE_RIGHT } from '../actions/moveRight.js';
 
 const initialState = [];
 
@@ -14,7 +15,9 @@ const cards = (state=initialState, action) =>{
       console.log("cards is", cards);
       console.log('action card', action.card);
       return [...cards, action.card];
-
+    case MOVE_RIGHT:
+      const cardsR = state.filter(card => parseInt(card.id) !== parseInt(action.card.id));
+      return [...cardsR, action.card];
     default:
       return state;
   }

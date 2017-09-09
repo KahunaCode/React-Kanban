@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import moveLeft from '../actions/moveLeft';
+import moveRight from '../actions/moveRight';
 
 
 class Card extends Component {
@@ -19,6 +20,7 @@ class Card extends Component {
 
   moveRight(e){
     console.log('moving right');
+    this.props.moveRight(this.props);
   }
 
   render(){
@@ -40,6 +42,9 @@ const mapDispatchToProps = (dispatch) =>{
   return {
     moveLeft: (card) =>{
       dispatch(moveLeft(card))
+    },
+    moveRight: (card) =>{
+      dispatch(moveRight(card))
     }
   }
 }
