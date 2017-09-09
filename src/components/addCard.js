@@ -32,6 +32,12 @@ class NewCard extends Component{
                            });
   }
 
+  handleIdChange(e){
+    this.setState({
+      id: e.target.value
+    });
+  }
+
   handleTitleChange(e){
     console.log(e.target.value);
     this.setState({
@@ -67,7 +73,7 @@ class NewCard extends Component{
     return(
       <div className="card-form">
         <label htmlFor="new-card-id">Id</label>
-        <input type="text" name="id"/>
+        <input onChange={this.handleIdChange.bind(this)}type="text" name="id"/>
         <br/>
         <label htmlFor="new-card-title">title</label>
         <input onChange={this.handleTitleChange.bind(this)} type="text" name="title"/>
