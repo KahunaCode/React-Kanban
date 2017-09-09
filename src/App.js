@@ -19,6 +19,8 @@ class App extends Component {
     return (
       <div>
         <h1>Kanban</h1>
+        <NewCard />
+
         <Column
         id = "queue"
         title = "Queue"

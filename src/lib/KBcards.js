@@ -1,8 +1,6 @@
 /* jshint esversion: 6 */
 
-export function KBcards(){
-  return new Promise ((resolve, reject) => {
-    resolve({
+let DBcards = {
       cards : [
       { id: 1,
         title: "Make Better styles",
@@ -26,7 +24,17 @@ export function KBcards(){
         assignedTo: "james"
       }
     ]
-    //cards: ['one', 'two', 'three']
+  };
+
+export function KBcards(){
+  return new Promise ((resolve, reject) => {
+    resolve(DBcards);
   });
+}
+
+export function addCardToDB(card){
+  return new Promise((resolve, reject) =>{
+    DBcards.cards.push(card);
+    resolve("OK!");
   });
 }

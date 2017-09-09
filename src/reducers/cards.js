@@ -1,6 +1,6 @@
 /* jshint esversion: 6 */
 
-import { LOAD_CARDS } from '../actions/cardActions.js';
+import { LOAD_CARDS, ADD_CARD } from '../actions/cardActions.js';
 import { MOVE_LEFT } from '../actions/moveLeft.js';
 import { MOVE_RIGHT } from '../actions/moveRight.js';
 
@@ -18,6 +18,9 @@ const cards = (state=initialState, action) =>{
     case MOVE_RIGHT:
       const cardsR = state.filter(card => parseInt(card.id) !== parseInt(action.card.id));
       return [...cardsR, action.card];
+    case ADD_CARD:
+      console.log("add card state",state);
+      return [...state];
     default:
       return state;
   }
