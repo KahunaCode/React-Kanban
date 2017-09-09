@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-export const MOVE_LEFT = "MOVE_LEFT"
+export const MOVE_LEFT = "MOVE_LEFT";
 
 export default (originalCard) =>{
   const card = { ...originalCard };
