@@ -29,6 +29,7 @@ let DBcards = {
 export function KBcards(){
   return new Promise ((resolve, reject) => {
     resolve(DBcards);
+    //GET api/cards
   });
 }
 
@@ -36,5 +37,6 @@ export function addCardToDB(card){
   return new Promise((resolve, reject) =>{
     DBcards.cards.push(card);
     resolve("OK!");
+    //POST /api/cards/new
   });
 }
