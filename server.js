@@ -2,16 +2,16 @@
 
 const express = require('express');
 const router = express.Router();
+const bp = require('body-parser');
 
 const app = express();
 const PORT = process.env.PORT || 8000;
-
-app
-.get('/api/cards', (req,res) =>{
-  res.send({
+// const db = require('./models');
+// const { Cards } = db;
+let DBcards = {
       cards : [
       { id: 1,
-        title: "Make Better styles",
+        title: "Server Make Better styles",
         priority: "medium",
         status: "queue",
         createdBy: "james",
@@ -32,7 +32,11 @@ app
         assignedTo: "james"
       }
     ]
-  });
+  };
+
+app
+.get('/api/cards', (req,res) =>{
+  res.send(DBcards);
 })
 .post('/api/cards/new', (req,res) => {
   res.send('POST request to /api/cards/new');

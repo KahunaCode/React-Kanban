@@ -3,7 +3,7 @@
 let DBcards = {
       cards : [
       { id: 1,
-        title: "Make Better styles",
+        title: "React Make Better styles",
         priority: "medium",
         status: "queue",
         createdBy: "james",
@@ -28,8 +28,16 @@ let DBcards = {
 
 export function KBcards(){
   return new Promise ((resolve, reject) => {
-    resolve(DBcards);
+    //resolve(DBcards);//resolve.this.responseText/data... something. console.log and figure out the right key to resolve.
     //GET api/cards
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener('load', function() {
+      console.log('DEBUG HERE',this.responseText);
+      var parsedData = JSON.parse(this.responseText);
+      resolve(parsedData);
+    });
+    oReq.open("GET", "api/cards");
+    oReq.send();
   });
 }
 
