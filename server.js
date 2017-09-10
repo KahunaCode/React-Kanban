@@ -4,7 +4,11 @@ const express = require('express');
 const router = express.Router();
 const bp = require('body-parser');
 
+
+
 const app = express();
+app.use(bp.urlencoded());
+
 const PORT = process.env.PORT || 8000;
 // const db = require('./models');
 // const { Cards } = db;
@@ -39,7 +43,11 @@ app
   res.send(DBcards);
 })
 .post('/api/cards/new', (req,res) => {
-  res.send('POST request to /api/cards/new');
+  //console.log('here you go', req.body);
+  DBcards.cards.push(req.body);
+  console.log("dbcards is now", DBcards);
+  //res.send('POST request to /api/cards/new');
+  res.send(DBcards);
 });
 
 

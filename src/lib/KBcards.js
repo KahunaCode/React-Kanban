@@ -42,6 +42,7 @@ export function KBcards(){
 }
 
 export function addCardToDB(card){
+  console.log('addCardToDB card:', card);
   return new Promise((resolve, reject) =>{
     DBcards.cards.push(card);
     resolve("OK!");
