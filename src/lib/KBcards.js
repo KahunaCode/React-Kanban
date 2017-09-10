@@ -26,13 +26,12 @@ let DBcards = {
     ]
   };
 
+//GET api/cards
 export function KBcards(){
   return new Promise ((resolve, reject) => {
-    //resolve(DBcards);//resolve.this.responseText/data... something. console.log and figure out the right key to resolve.
-    //GET api/cards
     var oReq = new XMLHttpRequest();
     oReq.addEventListener('load', function() {
-      console.log('DEBUG HERE',this.responseText);
+      //console.log('DEBUG HERE',this.responseText);
       var parsedData = JSON.parse(this.responseText);
       resolve(parsedData);
     });
@@ -41,11 +40,18 @@ export function KBcards(){
   });
 }
 
+//POST /api/cards/new
 export function addCardToDB(card){
-  console.log('addCardToDB card:', card);
+  //console.log('addCardToDB card:', card);
   return new Promise((resolve, reject) =>{
-    DBcards.cards.push(card);
-    resolve("OK!");
-    //POST /api/cards/new
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener('load', function() {
+      resolve(card);
+    });
+    oReq.open("POST", "api/cards/new");
+    console.log("card from addCardToDB", card);
+    oReq.send(card);
+    // DBcards.cards.push(card);
+    // resolve("OK!");
   });
 }
