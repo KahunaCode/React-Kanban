@@ -46,11 +46,15 @@ export function addCardToDB(card){
   return new Promise((resolve, reject) =>{
     var oReq = new XMLHttpRequest();
     oReq.addEventListener('load', function() {
-      resolve(card);
+      console.log('response text', this.responseText);
+      var parsedResponse = JSON.parse(this.responseText);
+      resolve(parsedResponse);
     });
     oReq.open("POST", "api/cards/new");
+    oReq.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+
     console.log("card from addCardToDB", card);
-    oReq.send(card);
+    oReq.send(JSON.stringify(card));
     // DBcards.cards.push(card);
     // resolve("OK!");
   });

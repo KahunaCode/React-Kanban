@@ -7,7 +7,7 @@ const bp = require('body-parser');
 
 
 const app = express();
-app.use(bp.urlencoded());
+app.use(bp.json());
 
 const PORT = process.env.PORT || 8000;
 // const db = require('./models');
@@ -43,7 +43,9 @@ app
   res.send(DBcards);
 })
 .post('/api/cards/new', (req,res) => {
-  //console.log('here you go', req.body);
+  console.log('here you go', req.body);
+  //let parsedBody = JSON.parse(req.body);
+  //console.log("paresed body ", parsedBody);
   DBcards.cards.push(req.body);
   console.log("dbcards is now", DBcards);
   //res.send('POST request to /api/cards/new');

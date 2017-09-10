@@ -20,15 +20,15 @@ export const loadCards = (cards) =>{
 };
 
 export const addCard = (card) => {
+ console.log('firing addcard action ', card);
   return function(dispatch) {
     return addCardToDB(card)
-    .then((status) =>{
-      if (status === "OK!"){
+    .then(({cards}) =>{
+        console.log('dispatching ', cards);
         dispatch({
-          type: ADD_CARD,
-          card: card
+          type: LOAD_CARDS,
+          cards: cards
         });
-      }
     });
   };
 };
