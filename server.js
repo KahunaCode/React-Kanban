@@ -4,14 +4,16 @@ const express = require('express');
 const router = express.Router();
 const bp = require('body-parser');
 
-
-
 const app = express();
+//const db = require('./models');
+
 app.use(bp.json());
 
 const PORT = process.env.PORT || 8000;
-// const db = require('./models');
-// const { Cards } = db;
+const db = require('./models');
+const {Cards} = db;
+
+// const { CardsX } = db;
 let DBcards = {
       cards : [
       { id: 1,
@@ -41,6 +43,11 @@ let DBcards = {
 app
 .get('/api/cards', (req,res) =>{
   res.send(DBcards);
+  // Cards.findAll()
+  // .then((cards) =>{
+  //   console.log("findAll cards", cards);
+  //   res.send(cards);
+  // });
 })
 .post('/api/cards/new', (req,res) => {
   console.log('here you go', req.body);
@@ -55,5 +62,6 @@ app
 
 
 const server = app.listen( PORT, () =>{
+  db.sequelize.sync();
   console.log('server running on', PORT);
 });

@@ -10,7 +10,7 @@ export const loadCards = (cards) =>{
   return function(dispatch) {
     return KBcards()
     .then( ( {cards} ) =>{
-      console.log("cards are", cards)
+      console.log("cards are", cards);
       dispatch({
         type: LOAD_CARDS,
         cards: cards
